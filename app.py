@@ -58,7 +58,7 @@ if source_radio == settings.IMAGE:
 
     with col1:
         try:
-            if source_img is None:
+            if source_img is None  :
                 default_image_path = str(settings.DEFAULT_IMAGE)
                 default_image = PIL.Image.open(default_image_path)
                 st.image(default_image_path, caption="Default Image",
