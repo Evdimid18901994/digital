@@ -13,7 +13,7 @@ import helper
 # Setting page layout
 st.set_page_config(
     page_title="Object Detection",
-    page_icon="🤖",
+    page_icon="./images/logo.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -22,7 +22,9 @@ st.set_page_config(
 st.title("Object Detection using YOLOv8")
 
 # Sidebar
+st.sidebar.image(image = "./images/logo.png", width=200)
 st.sidebar.header("ML Model Config")
+
 
 # Model Options
 model_type = st.sidebar.radio(
