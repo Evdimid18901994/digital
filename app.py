@@ -19,42 +19,42 @@ st.set_page_config(
 )
 
 # Main page heading
-st.title("Object Detection using YOLOv8")
+st.title("Нейронная сеть для детектирования заболеваний растений")
 
 # Sidebar
 st.sidebar.image(image = "./images/logo.png", width=200)
-st.sidebar.header("ML Model Config")
+st.sidebar.header("Urpaq-bio AI")
 
 
 # Model Options
 model_type = st.sidebar.radio(
-    "Select Task", ['Detection', 'Segmentation'])
+    "Select Task", ['Детектирование', 'Сегментация (старт проекта март 2025)'])
 
 confidence = float(st.sidebar.slider(
-    "Select Model Confidence", 25, 100, 40)) / 100
+    "Выберите точность распознавания (лучше 25)", 25, 100, 40)) / 100
 
 # Selecting Detection Or Segmentation
-if model_type == 'Detection':
+if model_type == 'Детектирование':
     model_path = Path(settings.DETECTION_MODEL)
-elif model_type == 'Segmentation':
+elif model_type == 'Сегментация (старт проекта март 2025)':
     model_path = Path(settings.SEGMENTATION_MODEL)
 
 # Load Pre-trained ML Model
 try:
     model = helper.load_model(model_path)
 except Exception as ex:
-    st.error(f"Unable to load model. Check the specified path: {model_path}")
+    st.error(f"Невозможно загрузить изображение, проверьте папку с фалами: {model_path}")
     st.error(ex)
 
 st.sidebar.header("Image/Video Config")
 source_radio = st.sidebar.radio(
-    "Select Source", settings.SOURCES_LIST)
+    "Выберите источник", settings.SOURCES_LIST)
 
 source_img = None
 # If image is selected
 if source_radio == settings.IMAGE:
     source_img = st.sidebar.file_uploader(
-        "Choose an image...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
+        "Выберите картинку растения...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
 
     col1, col2 = st.columns(2)
 
@@ -111,4 +111,7 @@ elif source_radio == settings.YOUTUBE:
     helper.play_youtube_video(confidence, model)
 
 else:
-    st.error("Please select a valid source type!")
+    st.error("Выберите подходящий источник видео!")
+
+st.write('Руководитель кружка "Флорариум әлемінде": ПДО Абраева Инеш Бахытжановна')
+st.write('Автор проекта: Газиз Темирлан')
