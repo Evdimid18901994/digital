@@ -13,7 +13,7 @@ import helper
 # Setting page layout
 st.set_page_config(
     page_title="Object Detection",
-    page_icon="./images/logonew.png",
+    page_icon="./images/logos.jpg",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -22,7 +22,7 @@ st.set_page_config(
 st.title("Нейронная сеть для детектирования заболеваний растений")
 
 # Sidebar
-st.sidebar.image(image = "./images/logonew.png", width=200)
+st.sidebar.image(image = "./images/logos.jpg", width=200)
 st.sidebar.header("Urpaq-bio AI")
 
 
