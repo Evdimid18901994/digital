@@ -13,7 +13,7 @@ import helper
 # Setting page layout
 st.set_page_config(
     page_title="Object Detection",
-    page_icon="./images/logos.jpg",
+    page_icon="./images/logoo.jpg",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -22,7 +22,7 @@ st.set_page_config(
 st.title("Нейронная сеть для детектирования заболеваний растений")
 
 # Sidebar
-st.sidebar.image(image = "./images/logos.jpg", width=200)
+st.sidebar.image(image = "./images/logoo.jpg", width=200)
 st.sidebar.header("Urpaq-bio AI")
 
 
@@ -63,14 +63,14 @@ if source_radio == settings.IMAGE:
             if source_img is None  :
                 default_image_path = str(settings.DEFAULT_IMAGE)
                 default_image = PIL.Image.open(default_image_path)
-                st.image(default_image_path, caption="Default Image",
+                st.image(default_image_path, caption="Исходное изображение",
                          use_column_width=True)
             else:
                 uploaded_image = PIL.Image.open(source_img)
-                st.image(source_img, caption="Uploaded Image",
+                st.image(source_img, caption="Результат распознавания",
                          use_column_width=True)
         except Exception as ex:
-            st.error("Error occurred while opening the image.")
+            st.error("Ошибка загрузки картинки.")
             st.error(ex)
 
     with col2:
